@@ -1,0 +1,96 @@
+<!-- R Commander Markdown Template -->
+
+Curso de Verão na USP Leste
+04 e 05 de Fevereiro de 2015
+=======================
+
+### Caio Moreno de Souza
+### caio@it4biz.com.br
+
+### `r as.character(Sys.Date())`
+
+```{r echo=FALSE}
+# include this code chunk as-is to set options
+knitr::opts_chunk$set(comment=NA, prompt=TRUE, out.width=750, fig.height=8, fig.width=8)
+library(Rcmdr)
+library(car)
+library(RcmdrMisc)
+```
+
+```{r}
+Nations <- read.table("/Volumes/CAIO/CursoR-USP-Lest-Fev15/exemplos_R/datasets/Nations.txt", 
+  header=TRUE, sep="", na.strings="NA", dec=".", strip.white=TRUE)
+```
+
+```{r}
+summary(Nations)
+```
+
+```{r}
+library(abind, pos=16)
+```
+
+```{r}
+library(e1071, pos=17)
+```
+
+```{r}
+numSummary(Nations[,c("contraception", "GDP", "infant.mortality", "TFR")], 
+  statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+numSummary(Nations[,c("contraception", "GDP", "infant.mortality", "TFR")], 
+  statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+numSummary(Nations[,c("contraception", "GDP", "infant.mortality", "TFR")], 
+  statistics=c("mean", "sd", "IQR", "quantiles"), quantiles=c(0,.25,.5,.75,1))
+```
+
+```{r}
+help("Prestige", package="car")
+```
+
+```{r}
+data(Prestige, package="car")
+```
+
+```{r}
+data()
+```
+
+```{r}
+data(Prestige, package="car")
+```
+
+```{r}
+LinearModel.1 <- lm(prestige ~ education + log(income), data=Prestige)
+summary(LinearModel.1)
+```
+
+```{r}
+LinearModel.2 <- lm(prestige ~ (education + log(income))*type, data=Prestige)
+summary(LinearModel.2)
+```
+
+```{r}
+Anova(LinearModel.2, type="II")
+```
+
+```{r}
+LinearModel.3 <- lm(log2(income) ~ education, data=Prestige)
+summary(LinearModel.3)
+```
+
+```{r}
+LinearModel.4 <- lm(prestige ~ (education + log(income))*type, data=Prestige)
+summary(LinearModel.4)
+```
+
+```{r}
+Anova(LinearModel.4, type="II")
+```
+
+
